@@ -1,5 +1,7 @@
 name: Zelda stock check
 on:
+  push:
+    paths: ['.github/workflows/stock.yml']
   workflow_dispatch:
   schedule:
     - cron: '2-59/5 * * * *'
