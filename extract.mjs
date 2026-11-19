@@ -4,6 +4,8 @@ export function extract() {
  const title=document.querySelector('h1')?.innerText||'';
  const controls=[...document.querySelectorAll('button,input[type=submit],a[role=button]')].filter(e=>visible(e)&&/in winkelwagen|in winkelmandje|toevoegen aan winkelwagen/i.test(e.innerText||e.value||e.getAttribute('aria-label')||''));
  for(const control of controls){
+  const related=[...document.querySelectorAll('h2,h3')].some(h=>/dit vind|gerelateerd|anderen bekeken|vaak samen|vergelijkbare producten/i.test(h.innerText||'') && !!(h.compareDocumentPosition(control)&Node.DOCUMENT_POSITION_FOLLOWING));
+  if(related) continue;
   if(control.disabled || control.getAttribute('aria-disabled')==='true') continue;
   let box=control.parentElement;
   for(let depth=0;box&&depth<6;depth++,box=box.parentElement){
