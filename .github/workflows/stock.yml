@@ -45,9 +45,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
           cp results/report.json validation-report.json
           if [ -f results/discord.json ]; then cp results/discord.json discord-validation.json; git add discord-validation.json; fi
-          git pull --rebase origin main
           git add validation-report.json
           git commit -m "Record hosted stock validation" || exit 0
           git push
