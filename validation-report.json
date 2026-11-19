@@ -1,0 +1,33 @@
+[
+  {
+    "store": "Coolblue",
+    "url": "https://www.coolblue.nl/product/986119/nintendo-switch-2-pro-controller-the-legend-of-zelda-40th-anniversary-edition.html",
+    "status": "unconfirmed",
+    "checkedAt": "2026-11-19T19:01:51.127Z",
+    "title": "Nintendo Switch 2 Pro Controller The Legend of Zelda 40th Anniversary Edition",
+    "available": false,
+    "stockText": [],
+    "price": null,
+    "total": null
+  },
+  {
+    "store": "Lobbes",
+    "url": "https://www.lobbes.nl/speelgoed/gaming/controllers-en-consoles/nintendo-switch-controllers-en-consoles/detail/5450026-nintendo-switch-2-pro-controller-the-legend-of-zelda-40th-anniversary-edition",
+    "status": "unknown",
+    "checkedAt": "2026-11-19T19:01:53.470Z",
+    "error": "Verification required"
+  },
+  {
+    "store": "AllYourGames",
+    "url": "https://www.allyourgames.nl/nintendo-switch-2-pro-controller-the-leg-165384656.html",
+    "status": "unconfirmed",
+    "checkedAt": "2026-11-19T19:01:54.184Z",
+    "title": "Nintendo Switch 2 Pro Controller - The Legend of Zelda 40th Anniversary Edition - Met vervangbare batterij",
+    "price": 149.95,
+    "available": true,
+    "stockText": [
+      "€149,95\nOp voorraad\nGratis verzending\n Op werkdagen voor 18:00 uur besteld, de volgende dag in huis! (Binnen NL)\n-\n+\nToevoegen aan winkelwagen"
+    ],
+    "total": 149.95
+  }
+]
