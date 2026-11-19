@@ -12,13 +12,11 @@ await fs.writeFile('results/discord.json',JSON.stringify({verified:webhookRespon
 if (!webhookResponse.ok) throw new Error('Discord webhook verification failed: '+webhookResponse.status);
 
 
-let solves = 0;
 async function solveTurnstile(page) {
- if (!process.env.CAPSOLVER_API_KEY || solves >= 1) return;
+ if (!process.env.CAPSOLVER_API_KEY) return;
  const widget = page.locator('[data-sitekey]').first();
  const key = await widget.getAttribute('data-sitekey').catch(()=>null);
  if (!key) return;
- solves++;
  const api = async (method, data) => {
   const response = await fetch('https://api.capsolver.com/'+method,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({clientKey:process.env.CAPSOLVER_API_KEY,...data}),signal:AbortSignal.timeout(20000)});
   if (!response.ok) throw new Error('CapSolver HTTP '+response.status);
