@@ -6,6 +6,11 @@ const stores = JSON.parse(await fs.readFile(new URL('./stores.json', import.meta
 await fs.mkdir('results', {recursive:true});
 let previous = {}; try {previous = JSON.parse(await fs.readFile('state.json'));} catch {}
 const next = {}, report = [];
+if (!process.env.DISCORD_WEBHOOK_URL) throw new Error('DISCORD_WEBHOOK_URL missing');
+const webhookResponse = await fetch(process.env.DISCORD_WEBHOOK_URL,{signal:AbortSignal.timeout(15000)});
+await fs.writeFile('results/discord.json',JSON.stringify({verified:webhookResponse.ok,status:webhookResponse.status}));
+if (!webhookResponse.ok) throw new Error('Discord webhook verification failed: '+webhookResponse.status);
+
 const browser = await chromium.launch();
 try {
  for (const store of stores) {
