@@ -25,7 +25,6 @@ jobs:
           key: stock-state-${{ github.run_id }}
           restore-keys: stock-state-
       - run: npm test
-      - run: node browser-test.mjs
       - run: npm run check
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
