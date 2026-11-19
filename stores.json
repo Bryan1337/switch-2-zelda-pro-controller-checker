@@ -1,0 +1,4 @@
+[
+ {"id":"coolblue","name":"Coolblue","url":"https://www.coolblue.nl/product/986119/nintendo-switch-2-pro-controller-the-legend-of-zelda-40th-anniversary-edition.html","priceSelector":".sales-price__current","stockSelector":"[data-test=stock-indication]","purchaseSelector":"button[data-test=add-to-cart]","shipping":0,"delivery":"See product page for current delivery date."},
+ {"id":"lobbes","name":"Lobbes","url":"https://www.lobbes.nl/speelgoed/gaming/controllers-en-consoles/nintendo-switch-controllers-en-consoles/detail/5450026-nintendo-switch-2-pro-controller-the-legend-of-zelda-40th-anniversary-edition","priceSelector":".add-to-cart .price","stockSelector":".add-to-cart","purchaseSelector":".add-to-cart button:has-text('In winkelwagen')","cartRequired":true,"cartUrl":"https://www.lobbes.nl/checkout","shipping":0,"delivery":"Standard NL delivery; express options may cost extra."}
+]
