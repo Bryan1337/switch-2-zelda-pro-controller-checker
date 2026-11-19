@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
@@ -40,7 +40,7 @@ jobs:
           path: results/
           retention-days: 3
       - name: Save initial validation report
-        if: always() && github.event_name == 'push'
+        if: always() && github.event_name == 'push' && hashFiles('results/report.json') != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
