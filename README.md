@@ -14,7 +14,7 @@ Discord webhook is read exclusively from Actions secret DISCORD_WEBHOOK_URL. The
 Each run uploads a JSON report and browser screenshots under Actions artifacts (3-day retention). Check failures appear in the report. Deduplication uses Actions cache; eviction can cause a repeat alert.
 
 ## Schedule
-Currently manual and validation runs only. A five-minute schedule will be enabled after validation passes. GitHub schedules can be delayed. No purchases are made.
+Runs every five minutes (minutes 2, 7, 12, etc.) plus manual workflow dispatch. Hosted validation and browser fixtures passed; Discord webhook verification returned HTTP 200. GitHub schedules can be delayed. No purchases are made.
 
 ## Validation
 Node rule tests and rendered browser fixtures cover positive stock, unavailable Lobbes, disabled buttons, contradictory stock, recommendations and ambiguous prices.
