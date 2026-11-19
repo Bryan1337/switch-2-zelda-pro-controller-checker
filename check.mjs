@@ -23,7 +23,8 @@ try {
    await page.waitForLoadState('networkidle',{timeout:15000}).catch(()=>{});
    const title = await page.getByRole('heading',{level:1}).first().innerText();
    const body = await page.locator('body').innerText();
-   if (/captcha|verify you are human|access denied|robot check/i.test(body)) throw new Error('Verification required');
+   if (/captcha|verify you are human|access denied|robot check|you have been blocked/i.test(body)) throw new Error('Verification required');
+   if (!/40th Anniversary/i.test(title)) throw new Error('Target product heading missing');
    const extracted = await page.evaluate(extract);
    const {price,available} = extracted;
    const purchase = page.locator('[data-stock-monitor-purchase=true]');
