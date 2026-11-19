@@ -1,10 +1,10 @@
 name: Zelda stock check
 on:
   workflow_dispatch:
-  push:
-    paths: ['.github/workflows/stock.yml']
+  schedule:
+    - cron: '2-59/5 * * * *'
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: zelda-stock
   cancel-in-progress: false
@@ -39,14 +39,3 @@ jobs:
           name: check-${{ github.run_id }}
           path: results/
           retention-days: 3
-      - name: Save initial validation report
-        if: always() && github.event_name == 'push' && hashFiles('results/report.json') != ''
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
-          cp results/report.json validation-report.json
-          if [ -f results/discord.json ]; then cp results/discord.json discord-validation.json; git add discord-validation.json; fi
-          git add validation-report.json
-          git commit -m "Record hosted stock validation" || exit 0
-          git push
