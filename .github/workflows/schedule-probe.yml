@@ -1,0 +1,16 @@
+name: Schedule probe
+on:
+  push:
+    paths:
+      - .github/workflows/schedule-probe.yml
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - run: echo "event=${{ github.event_name }} scheduled=${{ github.event.schedule }}"
